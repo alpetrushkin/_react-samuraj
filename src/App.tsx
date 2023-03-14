@@ -1,36 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
-type TitlePropsType = {
-  title: string
-}
-
-const Title = (props: TitlePropsType) => {
-  return <span>{props.title}</span>
-}
-
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Title title={'Alex'}/>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Title title={'Valera'}/>
-      </header>
-    </div>
-  );
+   return (
+      <div className="app-wrapper">
+         <header className="header">
+            <img src="https://comparer-tout.org/wp-content/uploads/2022/03/images-1024x979.png" alt="logo"/>
+         </header>
+         <nav className="nav">
+            <div><a href="#">Profile</a></div>
+            <div><a href="#">Messages</a></div>
+            <div><a href="#">News</a></div>
+            <div><a href="#">Music</a></div>
+            <div><a href="#">Settings</a></div>
+         </nav>
+         <main className="content">
+            <img
+               src="https://sun9-30.userapi.com/impf/c858120/v858120218/1bb4b6/5wfzdFcNKM4.jpg?size=0x0&quality=90&proxy=1&sign=e3d64951cee3a21f5b33303d7a390b5b&c_uniq_tag=G3n5h_pZ-UyW6rbD90h9JpEh8J3mFGNMtJLC7gEhQXc&type=video_thumb"
+               alt="images"/>
+            <div>ava + description</div>
+            <div>My posts
+               <div>New post</div>
+               <div>Post 1</div>
+               <div>Post 2</div>
+            </div>
+         </main>
+      </div>
+   );
 }
 
 export default App;

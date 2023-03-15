@@ -4,6 +4,6 @@
    border-radius: 50%;
 }
 
-.item {
-   color: #cea03e;
+.item, b {
+   color: #d35adc;
 }

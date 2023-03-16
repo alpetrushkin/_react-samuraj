@@ -1,14 +1,18 @@
 .dialogs {
+   padding: 10px;
    display: grid;
    grid-template-columns: 2fr 10fr;
 }
 
-.dialog {
+.item {
+   color: #2f2f2e;
+   text-decoration: none;
 }
 
 .active {
    color: #ff0062;
    font-weight: bold;
+   text-decoration: none;
 }
 
 .message {

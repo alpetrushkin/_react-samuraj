@@ -2,39 +2,50 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
+type DialogsPropsType = {
+   name: string
+   id: number
+}
+
+const DialogItem: React.FC<DialogsPropsType> = ({name, id}) => {
+   return (
+      <div className={s.item}>
+         <NavLink to={"/dialogs/" + id} className={({isActive}) => (isActive ? s.active : s.item)}>{name}</NavLink>
+      </div>
+   )
+}
+
+type MessageItemPropsType = {
+   message: string
+}
+
+const MessageItem: React.FC<MessageItemPropsType> = ({message}) => {
+   return (
+      <div className={s.messageItem}>
+         {message}
+      </div>
+   )
+}
+
 export const Dialogs = () => {
    return (
       <div className={s.dialogs}>
          <div className={s.dialog}>
-            <div className={s.item}>
-               <NavLink to="/dialogs/1" className={({isActive}) => (isActive ? s.active : '')}>Andrew</NavLink>
-            </div>
-            <div className={s.item}>
-               <NavLink to="/dialogs/2" className={({isActive}) => (isActive ? s.active : '')}>Dmitry</NavLink>
-            </div>
-            <div className={s.item}>
-               <NavLink to="/dialogs/3" className={({isActive}) => (isActive ? s.active : '')}>Sasha</NavLink>
-            </div>
-            <div className={s.item}>
-               <NavLink to="/dialogs/4" className={({isActive}) => (isActive ? s.active : '')}>Sveta</NavLink>
-            </div>
-            <div className={s.item}>
-               <NavLink to="/dialogs/5" className={({isActive}) => (isActive ? s.active : '')}>Valera</NavLink>
-            </div>
-            <div className={s.item}>
-               <NavLink to="/dialogs/6" className={({isActive}) => (isActive ? s.active : '')}>Viktor</NavLink>
-            </div>
+            <DialogItem name="Andrew" id={1}/>
+            <DialogItem name="Dmitry" id={2}/>
+            <DialogItem name="Sasha" id={3}/>
+            <DialogItem name="Sveta" id={4}/>
+            <DialogItem name="Valera" id={5}/>
+            <DialogItem name="Viktor" id={6}/>
          </div>
+
          <div className={s.message}>
-            <div className={s.messageItem}>
-               I am a normal popover and
-            </div>
-            <div className={s.messageItem}>
-               Can have text and everything
-            </div>
-            <div className={s.messageItem}>
-               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            </div>
+           <MessageItem message="I am a normal popover and"/>
+           <MessageItem message="Can have text and everything"/>
+           <MessageItem message="Lorem ipsum dolor sit amet, consectetur adipisicing elit."/>
+           <MessageItem message="Hi my name is Alex!"/>
+           <MessageItem message="Yo"/>
+           <MessageItem message="Yo-yo!!!"/>
          </div>
       </div>
    );

@@ -3,6 +3,17 @@ import {Post} from "./Post/Post";
 import s from './MyPosts.module.css';
 
 export const MyPosts = () => {
+   type PostDataType = {
+      id: number
+      title: string
+      likes: number
+   }
+
+   const postData: PostDataType[] = [
+      {id: 1, title: 'Hi hi', likes: 20},
+      {id: 2, title: 'yo-yo-yo', likes: 35},
+   ]
+
    return (
       <div className={s.myPost}>
          <h3>My posts</h3>
@@ -14,9 +25,8 @@ export const MyPosts = () => {
                <button>Send</button>
             </div>
          </div>
-        <Post title={'Hi'} likes={20}/>
-        <Post title={'yo-yo-yo'}/>
-        <Post title={'I live Russia'} likes={35}/>
+        <Post title={postData[0].title} likes={postData[0].likes}/>
+        <Post title={postData[1].title} likes={postData[1].likes}/>
       </div>
    );
 };

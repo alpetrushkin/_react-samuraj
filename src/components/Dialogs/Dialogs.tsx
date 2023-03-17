@@ -36,6 +36,10 @@ export const Dialogs = () => {
    const dialogsData: DialogsDataType[] = [
       {id: 1, name: 'Andrew'},
       {id: 2, name: 'Dmitry'},
+      {id: 3, name: 'Sasha'},
+      {id: 4, name: 'Sveta'},
+      {id: 5, name: 'Valera'},
+      {id: 6, name: 'Viktor'}
    ]
 
    type MessageDataType = {
@@ -46,26 +50,21 @@ export const Dialogs = () => {
    const messageData: MessageDataType[] = [
       {id: 1, message: 'I am a normal popover and'},
       {id: 2, message: 'Yo-yo!!!'},
+      {id: 3, message: 'Hi my name is Alex!'},
+      {id: 4, message: 'Yo'}
    ]
+
+   const dialogElement = dialogsData.map(d => <DialogItem name={d.name} id={d.id}/>)
+   const messageElement = messageData.map(m => <MessageItem message={m.message}/>)
 
    return (
       <div className={s.dialogs}>
          <div className={s.dialog}>
-            <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-            <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-            {/*<DialogItem name="Sasha" id={3}/>*/}
-            {/*<DialogItem name="Sveta" id={4}/>*/}
-            {/*<DialogItem name="Valera" id={5}/>*/}
-            {/*<DialogItem name="Viktor" id={6}/>*/}
+            {dialogElement}
          </div>
 
          <div className={s.message}>
-           <MessageItem message={messageData[0].message}/>
-           <MessageItem message={messageData[1].message}/>
-           {/*<MessageItem message="Lorem ipsum dolor sit amet, consectetur adipisicing elit."/>*/}
-           {/*<MessageItem message="Hi my name is Alex!"/>*/}
-           {/*<MessageItem message="Yo"/>*/}
-           {/*<MessageItem message="Yo-yo!!!"/>*/}
+            {messageElement}
          </div>
       </div>
    );

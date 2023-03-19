@@ -1,15 +1,11 @@
 import React from 'react';
 import {Post} from "./Post/Post";
 import s from './MyPosts.module.css';
-import {PostDataType} from "../../../index";
+import {ProfilePageType} from "../../../redux/state";
 
-type PostData = {
-   postsData: PostDataType[]
-}
+export const MyPosts: React.FC<ProfilePageType> = ({post}) => {
 
-export const MyPosts = (props: PostData) => {
-
-   const postElement = props.postsData.map(p => <Post title={p.title} likes={p.likes}/>)
+   const postElement = post.map(p => <Post title={p.title} likes={p.likes} id={p.id}/>)
 
    return (
       <div className={s.myPost}>

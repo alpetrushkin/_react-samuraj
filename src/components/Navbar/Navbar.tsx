@@ -1,8 +1,11 @@
 import React from 'react';
 import s from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import {Friends} from "../Friends/Friends";
+import {FriendPageType} from "../../redux/state";
 
-export const Navbar = () => {
+export const Navbar: React.FC<FriendPageType> = ({friend}) => {
+
    return (
       <nav className={s.nav}>
          <div>
@@ -19,6 +22,9 @@ export const Navbar = () => {
          </div>
          <div>
             <NavLink to="/settings" className={({isActive}) => (isActive ? s.activeLink : s.item)}>Settings</NavLink>
+         </div>
+         <div>
+            <Friends friend={friend}/>
          </div>
       </nav>
    );

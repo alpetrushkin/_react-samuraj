@@ -1,0 +1,12 @@
+.avatar {
+   width: 55px;
+   height: 55px;
+   border-radius: 50%;
+   margin-right: 20px;
+}
+
+.messageElement {
+   display: flex;
+   align-items: center;
+   margin-bottom: 25px;
+}

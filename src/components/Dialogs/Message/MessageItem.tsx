@@ -1,21 +1,12 @@
 import React from 'react';
-import s from "../Dialogs.module.css";
+import {MessageType} from "../../../redux/state";
+import s from './MessageItem.module.css';
 
-type MessagePropsType = {
-   id: number
-   message: string
-}
-
-type MessageItemPropsType = {
-   message: MessagePropsType[]
-}
-
-export const MessageItem: React.FC<MessageItemPropsType> = ({message}) => {
-   const messageElement = message.map(m => {
-      return <div className={s.messageItem}>{m.message}</div>
-   })
-
+export const MessageItem: React.FC<MessageType> = ({message, avatar, id}) => {
    return (
-      <>{messageElement}</>
+      <div className={s.messageElement}>
+         <img className={s.avatar} src={avatar} alt="avatar"/>
+         {message}
+      </div>
    )
 }

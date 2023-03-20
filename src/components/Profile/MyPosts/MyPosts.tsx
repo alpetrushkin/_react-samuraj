@@ -1,9 +1,24 @@
 import React from 'react';
 import {Post} from "./Post/Post";
 import s from './MyPosts.module.css';
-import {ProfilePageType} from "../../../redux/state";
+import {PostType, ProfilePageType} from "../../../redux/state";
 
-export const MyPosts: React.FC<ProfilePageType> = ({post}) => {
+type MyPostType = {
+   post: PostType[]
+   addPost: (title: string) => void
+}
+
+export const MyPosts: React.FC<MyPostType> = ({post, addPost}) => {
+   const [title, setTitle] = React.useState('');
+
+   const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setTitle(event.currentTarget.value)
+   }
+
+   const onClickAddHandler = () => {
+     addPost(title)
+      setTitle('')
+   }
 
    const postElement = post.map(p => <Post title={p.title} likes={p.likes} id={p.id}/>)
 
@@ -12,10 +27,10 @@ export const MyPosts: React.FC<ProfilePageType> = ({post}) => {
          <h3>My posts</h3>
          <div className={s.myPostFormAdd}>
             <div>
-               <textarea></textarea>
+               <textarea value={title} onChange={onChangeHandler}></textarea>
             </div>
             <div>
-               <button>Send</button>
+               <button onClick={onClickAddHandler}>Send</button>
             </div>
          </div>
          {postElement}

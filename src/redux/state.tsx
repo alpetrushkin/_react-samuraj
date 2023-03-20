@@ -55,20 +55,41 @@ let state: RootStateType = {
          {id: 6, name: 'Viktor'}
       ],
       message: [
-         {id: 1, message: 'I am a normal popover and', avatar: 'https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg'},
-         {id: 2, message: 'Yo-yo!!!', avatar: 'https://pixelbox.ru/wp-content/uploads/2021/11/avatar-whatsapp-pixelbox.ru-36.jpg'},
+         {
+            id: 1,
+            message: 'I am a normal popover and',
+            avatar: 'https://pixelbox.ru/wp-content/uploads/2022/05/russia-avatar-pixelbox.ru-14.jpg'
+         },
+         {
+            id: 2,
+            message: 'Yo-yo!!!',
+            avatar: 'https://pixelbox.ru/wp-content/uploads/2021/11/avatar-whatsapp-pixelbox.ru-36.jpg'
+         },
          {id: 3, message: 'Hi my name is Alex!', avatar: 'https://webmg.ru/wp-content/uploads/2022/06/i-173-1.jpeg'},
-         {id: 4, message: 'Yo2222', avatar: 'https://oir.mobi/uploads/posts/2021-04/1619454542_19-oir_mobi-p-krutoi-kot-zhivotnie-krasivo-foto-21.jpg'},
+         {
+            id: 4,
+            message: 'Yo2222',
+            avatar: 'https://oir.mobi/uploads/posts/2021-04/1619454542_19-oir_mobi-p-krutoi-kot-zhivotnie-krasivo-foto-21.jpg'
+         },
          {id: 5, message: 'Hello World!!!!!!!', avatar: 'https://otkritkis.com/wp-content/uploads/2022/06/ra8je.jpg'}
       ]
    },
    friendPage: {
       friend: [
          {id: 1, name: 'Dima', avatar: 'https://zamanilka.ru/wp-content/uploads/2022/07/kotik-ava-060722-1.jpg'},
-         {id: 1, name: 'Alex', avatar: 'https://pixelbox.ru/wp-content/uploads/2022/08/avatars-viber-pixelbox.ru-16.jpg'},
+         {
+            id: 1,
+            name: 'Alex',
+            avatar: 'https://pixelbox.ru/wp-content/uploads/2022/08/avatars-viber-pixelbox.ru-16.jpg'
+         },
          {id: 1, name: 'Carol', avatar: 'https://coolsen.ru/wp-content/uploads/2021/09/141.jpg'},
       ]
    }
+}
+
+export const addPost = (title: string) => {
+   let newPost = {id: 5, title: title, likes: 20}
+   state.profilePage.post.push(newPost)
 }
 
 export default state;

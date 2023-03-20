@@ -7,7 +7,6 @@ export const FriendsElements: React.FC<FriendType> = ({name, avatar}) => {
       <div className={s.friendsElements}>
          <img className={s.friendsImg} src={avatar} alt="avatar"/>
          <p>{name}</p>
-
       </div>
    );
 };

@@ -8,17 +8,25 @@ import {Route, Routes} from "react-router-dom";
 import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
-import {RootStateType} from "./redux/state";
+import {DialogsPageType, FriendPageType, ProfilePageType} from "./redux/state";
 
-const App: React.FC<RootStateType> = ({dialogsPage, profilePage, friendPage}) => {
+type GlobalStateType = {
+   dialogsPage: DialogsPageType
+   profilePage: ProfilePageType
+   friendPage: FriendPageType
+   addPost: (title: string) => void
+}
+
+const App: React.FC<GlobalStateType> = ({dialogsPage, profilePage, friendPage, addPost}) => {
    return (
       <div className="app-wrapper">
          <Header/>
          <Navbar friend={friendPage.friend}/>
          <div className="app-wrapper-content">
             <Routes>
-               <Route path="/dialogs/*" element={<Dialogs message={dialogsPage.message} dialogs={dialogsPage.dialogs}/>}/>
-               <Route path="/profile" element={<Profile post={profilePage.post}/>}/>
+               <Route path="/dialogs/*"
+                      element={<Dialogs message={dialogsPage.message} dialogs={dialogsPage.dialogs}/>}/>
+               <Route path="/profile" element={<Profile post={profilePage.post} addPost={addPost}/>}/>
                <Route path="/news" element={<News/>}/>
                <Route path="/music" element={<Music/>}/>
                <Route path="/settings" element={<Settings/>}/>
